@@ -2,8 +2,8 @@ export default function info(state={
 	fetching: false,
 	fetched: false,
 	lat: 0,
-	lon: 0,
-	data: [],
+	weather:[],
+	city:[],
 	error: null
 },action){
 	switch(action.type){
@@ -29,7 +29,7 @@ export default function info(state={
 			return {...state, fetching: true}
 		}
 		case 'FETCH_WEATHER_SUCEESS' : {
-			return {...state, fetching: false, fetched: true, data: action.payload }
+			return {...state, fetching: false, fetched: true, weather: action.weather, city: action.city }
 		}
 		case 'FETCH_WEATHER_ERROR' : {
 			return {...state, fetching: false, fetched: false, error: action.payload }

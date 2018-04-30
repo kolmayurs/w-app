@@ -13,7 +13,7 @@ export function fetchWeather(){
 	      	dispatch({type:'FETCH_WEATHER_START'})
 	      	axios.get('http://api.openweathermap.org/data/2.5/forecast?lat='+res.data.lat+'&lon='+res.data.lon+'&appid=8124a644a4fab4b5c77b5fc1ae5ba6c5')
 	      	.then(res => {
-	      	dispatch({type:'FETCH_WEATHER_SUCEESS', payload: res.data})
+	      	dispatch({type:'FETCH_WEATHER_SUCEESS', weather: res.data.list, city: res.data.city})
 	      	})
 	      	.catch(err => {
 		      	dispatch({type:'FETCH_WEATHER_ERROR', payload: err })
@@ -29,7 +29,7 @@ export function fetchWeather(){
         dispatch({type:'FETCH_WEATHER_START'})
 	      	axios.get('http://api.openweathermap.org/data/2.5/forecast?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&appid=8124a644a4fab4b5c77b5fc1ae5ba6c5')
 	      	.then(res => {
-	      	dispatch({type:'FETCH_WEATHER_SUCEESS', payload: res.data})
+	      	dispatch({type:'FETCH_WEATHER_SUCEESS', weather: res.data.list, city: res.data.city})
 	      	})
 	      	.catch(err => {
 		      	dispatch({type:'FETCH_WEATHER_ERROR', payload: err })
@@ -43,7 +43,7 @@ export function fetchWeather(){
 	      	dispatch({type:'FETCH_WEATHER_START'})
 	      	axios.get('http://api.openweathermap.org/data/2.5/forecast?lat='+res.data.lat+'&lon='+res.data.lon+'&appid=8124a644a4fab4b5c77b5fc1ae5ba6c5')
 	      	.then(res => {
-	      	dispatch({type:'FETCH_WEATHER_SUCEESS', payload: res.data})
+	      	dispatch({type:'FETCH_WEATHER_SUCEESS', weather: res.data.list, city: res.data.city})
 	      	})
 	      	.catch(err => {
 		      	dispatch({type:'FETCH_WEATHER_ERROR', payload: err })
