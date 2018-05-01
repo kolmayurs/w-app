@@ -31,12 +31,14 @@ alert(curdate.toLocaleString());*/
         <h1 key={'city' + i}>Weather in {cities.name}, {cities.country}</h1>
         )
     })
-
-    const weather_data = this.props.data.map((date,i) =>{
+      //<h1>{curdate.toLocaleString()}</h1>
+    const weather_data = this.props.data.map((items,i) =>{
        let curdate = new Date(null);
-       curdate.setTime(date.dt*1000);
+       curdate.setTime(items.dt*1000);
       return(
-        <h1 key={'date' + i}>{curdate.toLocaleString()}</h1>
+        <div  key={'weather_info' + i} className="weather_info">
+        <img src={'http://openweathermap.org/img/w/'+items.weather[0].icon+'.png'} />
+        </div>
         )
     })
     return (
